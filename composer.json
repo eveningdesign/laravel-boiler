@@ -1,0 +1,14 @@
+{
+    "name": "eveningdesign/laravel-boiler",
+    "description": "Generate basic CRUD boilerplate",
+    "require": {
+        "laravel/laravel": "5.1.*"
+    },
+    "authors": [
+        {
+            "name": "Ryan Shuya",
+            "email": "ryan@eveningdesign.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
