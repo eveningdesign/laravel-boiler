@@ -2,6 +2,7 @@
 
 namespace EveningDesign\Boiler\Console\Commands;
 
+use EveningDesign\Boiler\Helpers;
 use Illuminate\Console\Command;
 
 class GenerateConstants extends Command
@@ -11,7 +12,7 @@ class GenerateConstants extends Command
      *
      * @var string
      */
-    protected $signature = 'boiler:constants';
+    protected $signature = 'boiler:constants {resourceName : StudlyCase name of the resource}';
 
     /**
      * The console command description.
@@ -37,6 +38,15 @@ class GenerateConstants extends Command
      */
     public function handle()
     {
-        $this->info('Aw, yiiisss...');
+        $resourceName = $this->argument('resourceName');
+        $constantsName = studly_case($resourceName)."Constants";
+        $controllerName = str_plural($resourceName)."Controller";
+        $viewPath = snake_case($resourceName);
+
+        $content = view()->file(Helpers::makeTemplateFilename('constants.blade.php'),
+            ['constantsName' => $constantsName, 'controllerName' => $controllerName, 'viewPath' => $viewPath]);
+        Helpers::ensureDirectory(Helpers::makeConstantsFilename());
+        file_put_contents(Helpers::makeConstantsFilename($constantsName.'.php'), $content);
+        $this->info('Wrote constants file');
     }
 }
