@@ -42,9 +42,10 @@ class GenerateConstants extends Command
         $constantsName = studly_case($resourceName)."Constants";
         $controllerName = str_plural($resourceName)."Controller";
         $viewPath = snake_case($resourceName);
+        $routeBase = snake_case($resourceName);
 
         $content = view()->file(Helpers::makeTemplateFilename('constants.blade.php'),
-            ['constantsName' => $constantsName, 'controllerName' => $controllerName, 'viewPath' => $viewPath]);
+            ['constantsName' => $constantsName, 'controllerName' => $controllerName, 'viewPath' => $viewPath, 'routeBase' => $routeBase]);
         Helpers::ensureDirectory(Helpers::makeConstantsFilename());
         file_put_contents(Helpers::makeConstantsFilename($constantsName.'.php'), $content);
         $this->info('Wrote constants file');
