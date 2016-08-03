@@ -1,13 +1,17 @@
-<?php namespace EveningDesign\Boiler;
+<?php namespace EveningDesign\Boiler\Support;
 
 class Helpers {
 
     public static function makeTemplateFilename($filename) {
-        return __DIR__.'/templates/'.$filename;
+        return __DIR__ . '/../templates/' .$filename;
     }
 
     public static function makeConstantsFilename($filename = "") {
-        return app_path("Constants/".$filename);
+        return app_path("Constants")."/$filename";
+    }
+
+    public static function makeViewsFilename($filename = "") {
+        return base_path("resources/views")."/$filename";
     }
 
     public static function ensureDirectory($directory) {

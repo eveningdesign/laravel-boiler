@@ -1,11 +1,11 @@
 <?php echo "<?php".PHP_EOL; ?>
 namespace App\Constants;
 
-class {!! $constantsName !!} {
+class {!! $names->getConstantClass() !!} {
 
-    const ROUTE_BASE = "{!! $routeBase !!}";
-    const CONTROLLER = "{!! $controllerName !!}";
-    const VIEWS = "{!! $viewPath !!}";
+    const ROUTE_BASE = "{!! $names->getRouteBase() !!}";
+    const CONTROLLER = "{!! $names->getControllerClass() !!}";
+    const VIEWS = "{!! $names->getViewPath() !!}";
 
     const INDEX_ROUTE = self::ROUTE_BASE.".index";
     const INDEX_ACTION = self::CONTROLLER."@index";

@@ -2,7 +2,8 @@
 
 namespace EveningDesign\Boiler\Console\Commands;
 
-use EveningDesign\Boiler\Helpers;
+use EveningDesign\Boiler\Support\Helpers;
+use EveningDesign\Boiler\Support\ResourceNames;
 use Illuminate\Console\Command;
 
 class GenerateConstants extends Command
@@ -19,7 +20,7 @@ class GenerateConstants extends Command
      *
      * @var string
      */
-    protected $description = 'Generate resource constants for a table';
+    protected $description = 'Generate constants for a standard CRUD resource';
 
     /**
      * Create a new command instance.
@@ -38,16 +39,11 @@ class GenerateConstants extends Command
      */
     public function handle()
     {
-        $resourceName = $this->argument('resourceName');
-        $constantsName = studly_case($resourceName)."Constants";
-        $controllerName = str_plural($resourceName)."Controller";
-        $viewPath = snake_case($resourceName);
-        $routeBase = snake_case($resourceName);
+        $names = new ResourceNames($this->argument('resourceName'));
 
-        $content = view()->file(Helpers::makeTemplateFilename('constants.blade.php'),
-            ['constantsName' => $constantsName, 'controllerName' => $controllerName, 'viewPath' => $viewPath, 'routeBase' => $routeBase]);
+        $content = view()->file(Helpers::makeTemplateFilename('constants.blade.php'), ['names' => $names]);
         Helpers::ensureDirectory(Helpers::makeConstantsFilename());
-        file_put_contents(Helpers::makeConstantsFilename($constantsName.'.php'), $content);
-        $this->info('Wrote constants file');
+        file_put_contents(Helpers::makeConstantsFilename($names->getConstantClass().'.php'), $content);
+        $this->info("Wrote ".$names->getConstantClass()."php");
     }
 }
