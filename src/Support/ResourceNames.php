@@ -54,6 +54,16 @@ class ResourceNames {
         return $this->plural()->studly()->get()."Controller";
     }
 
+    public function getSingularInstanceName() {
+        $this->reset();
+        return $this->singular()->camel()->get();
+    }
+
+    public function getPlurarInstanceName() {
+        $this->reset();
+        return $this->plural()->camel()->get();
+    }
+
     public function getViewPath() {
         $this->reset();
         return $this->slug()->get();

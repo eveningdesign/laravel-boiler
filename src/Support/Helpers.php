@@ -20,4 +20,8 @@ class Helpers {
         }
     }
 
+    public static function makeHumanFriendly($text) {
+        return ucwords(str_replace("_", " ", snake_case($text)));
+    }
+
 }
