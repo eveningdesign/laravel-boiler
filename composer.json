@@ -2,7 +2,7 @@
     "name": "eveningdesign/laravel-boiler",
     "description": "Generate basic CRUD boilerplate",
     "require": {
-        "laravel/laravel": "5.1.*"
+        "laravel/framework": "5.1.*"
     },
     "authors": [
         {
