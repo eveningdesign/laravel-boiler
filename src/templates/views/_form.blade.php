@@ -5,4 +5,7 @@
         <td><?php echo "<?php echo \\Form::text('".$column->Field."'); ?>"; ?></td>
     </tr>
 @endforeach
+    <tr>
+        <td colspan="2" class="text-center"><?php echo "<?php echo \\Form::submit('Save', ['class' => 'btn btn-success']); ?>"; ?></td>
+    </tr>
 </table>
