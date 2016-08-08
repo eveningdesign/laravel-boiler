@@ -41,7 +41,7 @@ class GenerateViews extends Command {
         $names = new ResourceNames($this->argument('resourceName'));
         $tableInfo = new TableInfo($names->reset()->plural()->snake()->get());
 
-        collect(['index', 'create', 'show', 'edit'])->each(function($viewName) use($names, $tableInfo) {
+        collect(['index', 'create', 'show', 'edit', '_form'])->each(function($viewName) use($names, $tableInfo) {
             $content = view()->file(Helpers::makeTemplateFilename("views/$viewName.blade.php"), ['names' => $names, 'columns' => $tableInfo->getFilteredColumns()]);
             Helpers::ensureDirectory(Helpers::makeViewsFilename($names->getViewPath()));
             file_put_contents(Helpers::makeViewsFilename($names->getViewPath()."/$viewName.blade.php"), $content);
