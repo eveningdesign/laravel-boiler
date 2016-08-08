@@ -2,6 +2,7 @@
 
 use EveningDesign\Boiler\Support\Helpers;
 use EveningDesign\Boiler\Support\ResourceNames;
+use EveningDesign\Boiler\Support\TableInfo;
 use Illuminate\Console\Command;
 
 class GenerateViews extends Command {
@@ -38,9 +39,10 @@ class GenerateViews extends Command {
     public function handle()
     {
         $names = new ResourceNames($this->argument('resourceName'));
+        $tableInfo = new TableInfo($names->reset()->plural()->snake()->get());
 
-        collect(['index', 'create', 'show', 'edit'])->each(function($viewName) use($names) {
-            $content = view()->file(Helpers::makeTemplateFilename("views/$viewName.blade.php"), ['names' => $names]);
+        collect(['index', 'create', 'show', 'edit'])->each(function($viewName) use($names, $tableInfo) {
+            $content = view()->file(Helpers::makeTemplateFilename("views/$viewName.blade.php"), ['names' => $names, 'columns' => $tableInfo->getFilteredColumns()]);
             Helpers::ensureDirectory(Helpers::makeViewsFilename($names->getViewPath()));
             file_put_contents(Helpers::makeViewsFilename($names->getViewPath()."/$viewName.blade.php"), $content);
             $this->info("Wrote ".$names->getViewPath()."/$viewName.blade.php");

@@ -30,6 +30,11 @@ class ResourceNames {
         return $this;
     }
 
+    public function camel() {
+        $this->result = camel_case($this->result);
+        return $this;
+    }
+
     public function slug() {
         $this->result = str_slug($this->result);
         return $this;
