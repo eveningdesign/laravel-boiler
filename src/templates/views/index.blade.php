@@ -13,10 +13,10 @@
             </tr>
         </thead>
         <tbody>
-        <?php echo "@foreach($".$names->getPlurarInstanceName()." as $".$names->getSingularInstanceName().")".PHP_EOL; ?>
+        <?php echo "@foreach(".$names->getPlurarInstanceName()." as ".$names->getSingularInstanceName().")".PHP_EOL; ?>
             <tr>
 @foreach($columns as $column)
-                <td><?php echo "{!! $".$names->getSingularInstanceName()."->".$column->Field." !!}"; ?></td>
+                <td><?php echo "{!! ".$names->getSingularInstanceName()."->".$column->Field." !!}"; ?></td>
 @endforeach
             </tr>
         <?php echo "@endforeach".PHP_EOL; ?>

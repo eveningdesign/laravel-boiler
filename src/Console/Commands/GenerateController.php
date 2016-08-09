@@ -1,26 +1,24 @@
-<?php
-
-namespace EveningDesign\Boiler\Console\Commands;
+<?php namespace EveningDesign\Boiler\Console\Commands;
 
 use EveningDesign\Boiler\Support\Helpers;
 use EveningDesign\Boiler\Support\ResourceNames;
 use Illuminate\Console\Command;
 
-class GenerateConstants extends Command
-{
+class GenerateController extends Command {
+
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'boiler:constants {resourceName : StudlyCase name of the resource}';
+    protected $signature = 'boiler:controller {resourceName : StudlyCase name of the resource (Model) to create views for}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate constants for a standard CRUD resource';
+    protected $description = 'Generate standard CRUD views for a resource';
 
     /**
      * Create a new command instance.
@@ -41,9 +39,9 @@ class GenerateConstants extends Command
     {
         $names = new ResourceNames($this->argument('resourceName'));
 
-        $content = view()->file(Helpers::makeTemplateFilename('constants.blade.php'), ['names' => $names]);
-        Helpers::ensureDirectory(Helpers::makeConstantsFilename());
-        file_put_contents(Helpers::makeConstantsFilename($names->getControllerClass().'.php'), $content);
-        $this->info("Wrote ".$names->getControllerClass()."php");
+        $content = view()->file(Helpers::makeTemplateFilename("controller.blade.php"), ['names' => $names]);
+        Helpers::ensureDirectory(Helpers::makeControllerFilename());
+        file_put_contents(Helpers::makeControllerFilename($names->getControllerClass().".php"), $content);
+        $this->info("Wrote ".$names->getControllerClass().".php");
     }
 }

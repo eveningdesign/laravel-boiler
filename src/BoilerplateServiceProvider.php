@@ -25,6 +25,7 @@ class BoilerplateServiceProvider extends ServiceProvider
     {
         $this->registerConstantsGeneratorCommand();
         $this->registerViewsGeneratorCommand();
+        $this->registerControllerGeneratorCommand();
     }
 
     public function registerConstantsGeneratorCommand() {
@@ -39,5 +40,12 @@ class BoilerplateServiceProvider extends ServiceProvider
             return $app['EveningDesign\Boiler\Console\Commands\GenerateViews'];
         });
         $this->commands('command.eveningdesign.views');
+    }
+
+    public function registerControllerGeneratorCommand() {
+        $this->app->singleton('command.eveningdesign.controller', function ($app) {
+            return $app['EveningDesign\Boiler\Console\Commands\GenerateController'];
+        });
+        $this->commands('command.eveningdesign.controller');
     }
 }

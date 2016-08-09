@@ -8,7 +8,7 @@
 @foreach($columns as $column)
         <tr>
             <td><?php echo \EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($column->Field); ?></td>
-            <td><?php echo "<?php echo $".$names->getSingularInstanceName().'->'.$column->Field."; ?>"; ?></td>
+            <td><?php echo "<?php echo ".$names->getSingularInstanceName().'->'.$column->Field."; ?>"; ?></td>
         </tr>
 @endforeach
     </table>

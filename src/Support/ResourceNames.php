@@ -44,9 +44,14 @@ class ResourceNames {
         return $this->result;
     }
 
+    public function getModelName() {
+        $this->reset();
+        return $this->singular()->studly()->get();
+    }
+
     public function getConstantClass() {
         $this->reset();
-        return $this->singular()->studly()->get()."Constants";
+        return "\\App\\Constants\\".$this->singular()->studly()->get()."Constants";
     }
 
     public function getControllerClass() {
@@ -54,14 +59,14 @@ class ResourceNames {
         return $this->plural()->studly()->get()."Controller";
     }
 
-    public function getSingularInstanceName() {
+    public function getSingularInstanceName($prefix = "$") {
         $this->reset();
-        return $this->singular()->camel()->get();
+        return $prefix.$this->singular()->camel()->get();
     }
 
-    public function getPlurarInstanceName() {
+    public function getPlurarInstanceName($prefix = "$") {
         $this->reset();
-        return $this->plural()->camel()->get();
+        return $prefix.$this->plural()->camel()->get();
     }
 
     public function getViewPath() {
