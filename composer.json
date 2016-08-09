@@ -1,6 +1,8 @@
 {
     "name": "eveningdesign/laravel-boiler",
     "description": "Generate basic CRUD boilerplate",
+    "keywords": ["generator", "scaffold", "crud", "boilerplate", "template"],
+    "license": "MIT",
     "require": {
         "laravel/framework": "5.1.*"
     },
