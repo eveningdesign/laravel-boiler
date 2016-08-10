@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use <?php echo $names->getNamespacedConstantClass(); ?>;
-use App\Models\<?php echo $names->getModelName(); ?>;
+use <?php echo $names->getNamespacedModelName(); ?>;
+use <?php echo $names->getNamespacedRequestClass(); ?>;
 
 class <?php echo $names->getControllerClass(); ?> extends Controller
 {
@@ -21,7 +22,7 @@ class <?php echo $names->getControllerClass(); ?> extends Controller
         return view(<?php echo $names->getConstantClass()."::CREATE_VIEW"; ?>)->with('<?php echo $names->getSingularInstanceName(""); ?>', <?php echo $names->getSingularInstanceName(); ?>);
     }
 
-    public function store(Request $request)
+    public function store(<?php echo $names->getRequestClass(); ?> $request)
     {
         $input = $request->except(['_token', '_method']);
         <?php echo $names->getSingularInstanceName(); ?> = <?php echo $names->getModelName(); ?>::create($input);
@@ -40,7 +41,7 @@ class <?php echo $names->getControllerClass(); ?> extends Controller
         return view(<?php echo $names->getConstantClass(); ?>::EDIT_VIEW)->with('<?php echo $names->getSingularInstanceName(""); ?>', <?php echo $names->getSingularInstanceName(); ?>);
     }
 
-    public function update(Request $request, $id)
+    public function update(<?php echo $names->getRequestClass(); ?> $request, $id)
     {
         $input = $request->except(['_token', '_method']);
         <?php echo $names->getSingularInstanceName(); ?> = <?php echo $names->getModelName(); ?>::find($id);
@@ -51,5 +52,6 @@ class <?php echo $names->getControllerClass(); ?> extends Controller
     public function destroy($id)
     {
         <?php echo $names->getModelName(); ?>::destroy($id);
+        return redirect()->route(<?php echo $names->getConstantClass(); ?>::INDEX_ROUTE);
     }
 }

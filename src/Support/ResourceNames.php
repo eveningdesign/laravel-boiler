@@ -49,6 +49,11 @@ class ResourceNames {
         return $this->singular()->studly()->get();
     }
 
+    public function getNamespacedModelName() {
+        $this->reset();
+        return "\\App\\Models\\".$this->singular()->studly()->get();
+    }
+
     public function getConstantClass() {
         $this->reset();
         return $this->singular()->studly()->get()."Constants";
