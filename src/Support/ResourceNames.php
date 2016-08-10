@@ -51,7 +51,22 @@ class ResourceNames {
 
     public function getConstantClass() {
         $this->reset();
-        return "\\App\\Constants\\".$this->singular()->studly()->get()."Constants";
+        return $this->singular()->studly()->get()."Constants";
+    }
+
+    public function getNamespacedConstantClass() {
+        $this->reset();
+        return "\\App\\Constants\\".$this->getConstantClass();
+    }
+
+    public function getRequestClass() {
+        $this->reset();
+        return $this->singular()->studly()->get()."Request";
+    }
+
+    public function getNamespacedRequestClass() {
+        $this->reset();
+        return "\\App\\Http\\Requests\\".$this->getRequestClass();
     }
 
     public function getControllerClass() {
