@@ -10,6 +10,10 @@ class Helpers {
         return app_path("Constants")."/$filename";
     }
 
+    public static function makeHttpFilename($filename = "") {
+        return app_path("Http")."/$filename";
+    }
+
     public static function makeModelFilename($filename = "") {
         return app_path("Models")."/$filename";
     }

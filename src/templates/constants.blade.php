@@ -3,6 +3,7 @@ namespace App\Constants;
 
 class {!! $names->getConstantClass() !!} {
 
+    const PATH = {!! $names->getPluralInstanceName() !!};
     const ROUTE_BASE = "{!! $names->getRouteBase() !!}";
     const CONTROLLER = "{!! $names->getControllerClass() !!}";
     const VIEWS = "{!! $names->getViewPath() !!}";
