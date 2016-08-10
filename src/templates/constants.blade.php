@@ -3,7 +3,7 @@ namespace App\Constants;
 
 class {!! $names->getConstantClass() !!} {
 
-    const PATH = "{!! $names->getPluralInstanceName("") !!}";
+    const PATH = "{!! $names->getRouteBase() !!}";
     const ROUTE_BASE = "{!! $names->getRouteBase() !!}";
     const CONTROLLER = "{!! $names->getControllerClass() !!}";
     const VIEWS = "{!! $names->getViewPath() !!}";
@@ -33,6 +33,6 @@ class {!! $names->getConstantClass() !!} {
     const DESTROY_ROUTE = self::ROUTE_BASE.".destroy";
     const DESTROY_ACTION = self::CONTROLLER."<?php echo "@destroy"; ?>";
 
-    const FORM_VIEW = self::VIEWS."_form";
+    const FORM_VIEW = self::VIEWS."._form";
 
 }

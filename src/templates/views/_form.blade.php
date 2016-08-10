@@ -6,6 +6,8 @@
     </tr>
 @endforeach
     <tr>
-        <td colspan="2" class="text-center"><?php echo "<?php echo \\Form::submit('Save', ['class' => 'btn btn-success']); ?>"; ?></td>
+        <td colspan="2" class="text-center">
+            <?php echo "<?php echo \\Form::submit('Save', ['class' => 'btn btn-success']); ?>".PHP_EOL; ?>
+            <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::INDEX_ROUTE); ?>".PHP_EOL; ?>">Cancel</a></td>
     </tr>
 </table>

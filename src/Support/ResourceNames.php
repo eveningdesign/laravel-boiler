@@ -91,7 +91,7 @@ class ResourceNames {
 
     public function getRouteBase() {
         $this->reset();
-        return $this->snake()->get();
+        return $this->plural()->snake()->get();
     }
 
     public function reset() {
