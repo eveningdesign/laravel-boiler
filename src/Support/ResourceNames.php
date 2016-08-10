@@ -79,7 +79,7 @@ class ResourceNames {
         return $prefix.$this->singular()->camel()->get();
     }
 
-    public function getPlurarInstanceName($prefix = "$") {
+    public function getPluralInstanceName($prefix = "$") {
         $this->reset();
         return $prefix.$this->plural()->camel()->get();
     }

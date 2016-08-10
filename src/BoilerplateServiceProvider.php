@@ -29,6 +29,7 @@ class BoilerplateServiceProvider extends ServiceProvider
         $this->registerRequestGeneratorCommand();
         $this->registerModelGeneratorCommand();
         $this->registerRouteGeneratorCommand();
+        $this->registerResourceGeneratorCommand();
     }
 
     public function registerConstantsGeneratorCommand() {
@@ -71,5 +72,12 @@ class BoilerplateServiceProvider extends ServiceProvider
             return $app['EveningDesign\Boiler\Console\Commands\GenerateRoute'];
         });
         $this->commands('command.eveningdesign.route');
+    }
+
+    public function registerResourceGeneratorCommand() {
+        $this->app->singleton('command.eveningdesign.resource', function ($app) {
+            return $app['EveningDesign\Boiler\Console\Commands\GenerateResource'];
+        });
+        $this->commands('command.eveningdesign.resource');
     }
 }

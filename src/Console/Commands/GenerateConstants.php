@@ -43,7 +43,7 @@ class GenerateConstants extends Command
 
         $content = view()->file(Helpers::makeTemplateFilename('constants.blade.php'), ['names' => $names]);
         Helpers::ensureDirectory(Helpers::makeConstantsFilename());
-        file_put_contents(Helpers::makeConstantsFilename($names->getControllerClass().'.php'), $content);
-        $this->info("Wrote ".$names->getControllerClass()."php");
+        file_put_contents(Helpers::makeConstantsFilename($names->getConstantClass().'.php'), $content);
+        $this->info("Wrote ".$names->getConstantClass()."php");
     }
 }
