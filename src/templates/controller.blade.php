@@ -26,7 +26,7 @@ class <?php echo $names->getControllerClass(); ?> extends Controller
     {
         $input = $request->except(['_token', '_method']);
         <?php echo $names->getSingularInstanceName(); ?> = <?php echo $names->getModelName(); ?>::create($input);
-        return redirect()->route(<?php echo $names->getConstantClass(); ?>::SHOW_ROUTE, [<?php echo $names->getSingularInstanceName(); ?>->id]);
+        return redirect()->route(<?php echo $names->getConstantClass(); ?>::SHOW_ROUTE, [<?php echo $names->getSingularInstanceName(); ?>-><?php echo $names->makeWrappedColumnConstant('id'); ?>]);
     }
 
     public function show($id)
@@ -46,7 +46,7 @@ class <?php echo $names->getControllerClass(); ?> extends Controller
         $input = $request->except(['_token', '_method']);
         <?php echo $names->getSingularInstanceName(); ?> = <?php echo $names->getModelName(); ?>::find($id);
         <?php echo $names->getSingularInstanceName(); ?>->update($input);
-        return redirect()->route(<?php echo $names->getConstantClass(); ?>::SHOW_ROUTE, [<?php echo $names->getSingularInstanceName(); ?>->id]);
+        return redirect()->route(<?php echo $names->getConstantClass(); ?>::SHOW_ROUTE, [<?php echo $names->getSingularInstanceName(); ?>-><?php echo $names->makeWrappedColumnConstant('id'); ?>]);
     }
 
     public function destroy($id)

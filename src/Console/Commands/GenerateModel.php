@@ -41,7 +41,11 @@ class GenerateModel extends Command {
         $names = new ResourceNames($this->argument('resourceName'));
         $tableInfo = new TableInfo($names->reset()->plural()->snake()->get());
 
-        $content = view()->file(Helpers::makeTemplateFilename("model.blade.php"), ['names' => $names, 'columns' => $tableInfo->getFilteredColumns()]);
+        $content = view()->file(Helpers::makeTemplateFilename("model.blade.php"), [
+            'names' => $names,
+            'allColumns' => $tableInfo->getAllColumns(),
+            'filteredColumns' => $tableInfo->getFilteredColumns(),
+        ]);
         Helpers::ensureDirectory(Helpers::makeModelFilename());
         file_put_contents(Helpers::makeModelFilename($names->getModelName().".php"), $content);
         $this->info("Wrote ".$names->getModelName().".php");
