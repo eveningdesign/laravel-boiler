@@ -11,6 +11,8 @@ class <?php echo $names->getModelName(); ?> extends Model
     @endforeach
 
     protected $fillable = [
-        <?php echo $filteredColumns->pluck('Field')->map(function($i) {return sprintf("self::COL_%s", strtoupper($i));})->implode(','.PHP_EOL); ?>
+    @foreach($filteredColumns->pluck('Field')->map(function($i) {return sprintf("self::COL_%s", strtoupper($i));}) as $column)
+        <?php echo $column; ?>,
+    @endforeach
     ];
 }
