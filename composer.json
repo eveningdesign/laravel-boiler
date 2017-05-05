@@ -4,7 +4,7 @@
     "keywords": ["generator", "scaffold", "crud", "boilerplate", "template"],
     "license": "MIT",
     "require": {
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "5.*"
     },
     "authors": [
         {
