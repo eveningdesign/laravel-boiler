@@ -7,7 +7,7 @@
 </div>
 <div class="row">
     <div class="col-sm-12 text-right">
-        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::CREATE_ROUTE); ?>"; ?>" class="btn btn-success btn-sm">Add Player</a>
+        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::CREATE_ROUTE); ?>"; ?>" class="btn btn-success btn-sm">Add <?php echo \EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($names->reset()->singular()->get()); ?></a>
     </div>
 </div>
 <div class="row">
