@@ -31,9 +31,9 @@
                         <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::SHOW_ROUTE, ".$names->getSingularInstanceName()."->".$names->makeWrappedNamespacedColumnConstant('id')."); ?>"; ?>" class="btn btn-default <?php echo \EveningDesign\Boiler\Support\Helpers::getButtonSize(); ?>">View</a>
                         <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::EDIT_ROUTE, ".$names->getSingularInstanceName()."->".$names->makeWrappedNamespacedColumnConstant('id')."); ?>"; ?>" class="btn btn-warning <?php echo \EveningDesign\Boiler\Support\Helpers::getButtonSize(); ?>">Edit</a>
                         <div style="display: inline-block;">
-                            <?php echo "<?php echo Form::open(['method' => 'DELETE', 'route' => [".$names->getNamespacedConstantClass()."::DESTROY_ROUTE, ".$names->getSingularInstanceName()."->".$names->makeWrappedNamespacedColumnConstant('id')."]]); ?>"; ?>
-                            <?php echo "<?php echo Form::submit('Delete', ['onClick' => 'return confirm(\\'Are you sure you want to delete this record?\\')', 'class' => 'btn btn-danger ". \EveningDesign\Boiler\Support\Helpers::getButtonSize()."']); ?>"; ?>
-                            <?php echo "<?php echo Form::close(); ?>"; ?>
+                            <?php echo "<?php echo Form::open(['method' => 'DELETE', 'route' => [".$names->getNamespacedConstantClass()."::DESTROY_ROUTE, ".$names->getSingularInstanceName()."->".$names->makeWrappedNamespacedColumnConstant('id')."]]); ?>".PHP_EOL; ?>
+                            <?php echo "<?php echo Form::submit('Delete', ['onClick' => 'return confirm(\\'Are you sure you want to delete this record?\\')', 'class' => 'btn btn-danger ". \EveningDesign\Boiler\Support\Helpers::getButtonSize()."']); ?>".PHP_EOL; ?>
+                            <?php echo "<?php echo Form::close(); ?>".PHP_EOL; ?>
                         </div>
                     </td>
                 </tr>
