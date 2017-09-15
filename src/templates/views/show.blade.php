@@ -7,8 +7,8 @@
 </div>
 <div class="row">
     <div class="col-sm-12 text-right">
-        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::EDIT_ROUTE, ".$names->getSingularInstanceName()."->".$names->makeWrappedNamespacedColumnConstant('id')."); ?>"; ?>" class="btn btn-warning btn-xs">Edit</a>
-        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::INDEX_ROUTE); ?>"; ?>" class="btn btn-default btn-sm">View All</a>
+        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::EDIT_ROUTE, ".$names->getSingularInstanceName()."->".$names->makeWrappedNamespacedColumnConstant('id')."); ?>"; ?>" class="btn btn-warning <?php echo \EveningDesign\Boiler\Support\Helpers::getButtonSize(); ?>">Edit</a>
+        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::INDEX_ROUTE); ?>"; ?>" class="btn btn-default <?php echo \EveningDesign\Boiler\Support\Helpers::getButtonSize(); ?>">View All</a>
     </div>
 </div>
 <div class="row">
