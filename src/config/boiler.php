@@ -1,17 +1,9 @@
 <?php
 
 return [
-    'styling' => [
-        'headings' => 'h3',
-        'classes' => [
-            'button-size' => 'btn-xs',
-            'table' => 'table table-bordered table-striped',
-        ],
-    ],
-    'blade' => [
-        'layout' => "@extends('app')",
-        'sections' => [
-            'content' => "@section('content')",
-        ]
-    ],
+    'headings' => 'h3',
+    'button-size-class' => 'btn-xs',
+    'table-classes' => 'table table-bordered table-striped',
+    'extends-directive' => "@extends('app')",
+    'content-section-directive' => "@section('content')",
 ];

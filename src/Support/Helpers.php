@@ -42,27 +42,27 @@ class Helpers {
 
     public static function getLayout()
     {
-        return config('boiler.blade.layout');
+        return config('boiler.extends-directive');
     }
 
     public static function getContentSection()
     {
-        return config('boiler.blade.sections.content');
+        return config('boiler.content-section-directive');
     }
 
     public static function getHeading()
     {
-        return config('boiler.styling.headings');
+        return config('boiler.headings');
     }
 
     public static function getButtonSize()
     {
-        return config('boiler.styling.classes.button-size');
+        return config('boiler.button-size-class');
     }
 
     public static function getTableClass()
     {
-        return config('boiler.styling.classes.table');
+        return config('boiler.table-classes');
     }
 
 }
