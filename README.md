@@ -1,5 +1,5 @@
 # laravel-boiler
-Generate Laravel 5.1 boilerplate code for basic CRUD operations.
+Generate Laravel 5.x boilerplate code for basic CRUD operations.
 
 ## Overview
 
@@ -25,7 +25,9 @@ Install in the usual composer way.
 
 Run composer update.
 
-Add the service provider. You only need it in dev mode, so you have two options. Option one is to do an environment check in app.php, and if you're local array_merge the provider into the providers array. Peform this setup at the top of the file before the return statement. Option two is to do the check and register the BoilerplateServiceProvider in the AppServiceProvider.
+This package uses Laravel 5.5 auto-discover. If you're using 5.5, you don't have to do anything else and you'll have access to the Artisan commands.
+
+For Laravel < 5.5, add the service provider. You only need it in dev mode, so you have two options. Option one is to do an environment check in app.php, and if you're local array_merge the provider into the providers array. Peform this setup at the top of the file before the return statement. Option two is to do the check and register the BoilerplateServiceProvider in the AppServiceProvider.
 
 ```
 <?php
@@ -51,5 +53,8 @@ php artisan boiler:views Address
 ```
 The views command will connect to your MySQL database (have not tested it on any other database), pull the field names and data types, and generate the views with the correct accessors in place.
 
+## Config
+
+There are some config options for replacements in the views. Add a `boiler.php` file in your config directory and include the ones you want overridden (it's merged with the defaults). Look in the package config directory to see the options that are available.
 ## WARNING
-This doesn't ask for many options yet. It just overwrites files in the locations it experts them to go. If you have a create.blade.php view in the address directory, running the views command will overwrite your create.blade.php file. Use with caution.
+This doesn't ask for many options yet. It just overwrites files in the locations it expects them to go. If you have a `create.blade.php` view in the address directory, running the views command will overwrite your create.blade.php file. Use with caution.
