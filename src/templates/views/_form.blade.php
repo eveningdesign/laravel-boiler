@@ -7,7 +7,7 @@
     </ul>
 </div>
 <?php echo "@endif".PHP_EOL; ?>
-<table class="table table-bordered">
+<table class="<?php echo \EveningDesign\Boiler\Support\Helpers::getTableClass(); ?>">
 @foreach($columns as $column)
     <tr>
         <td><?php echo "<?php echo \\Form::label('".$column->Field."', '".\EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($column->Field)."'); ?>"; ?></td>

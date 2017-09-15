@@ -2,7 +2,7 @@
 <?php echo \EveningDesign\Boiler\Support\Helpers::getContentSection().PHP_EOL; ?>
 <div class="row">
     <div class="col-sm-12">
-        <h3>All <?php echo \EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($names->reset()->plural()->get()); ?></h3>
+        <<?php echo \EveningDesign\Boiler\Support\Helpers::getHeading(); ?>>All <?php echo \EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($names->reset()->plural()->get()); ?></<?php echo \EveningDesign\Boiler\Support\Helpers::getHeading(); ?>>
     </div>
 </div>
 <div class="row">
@@ -12,7 +12,7 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <table class="table table-bordered table-striped">
+        <table class="<?php echo \EveningDesign\Boiler\Support\Helpers::getTableClass(); ?>">
             <thead>
                 <tr>
 @foreach($columns as $column)
