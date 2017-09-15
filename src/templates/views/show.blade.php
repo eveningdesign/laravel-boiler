@@ -1,4 +1,4 @@
-<?php echo "@extends('app')".PHP_EOL; ?>
+<?php echo config('boiler.blade.layout').PHP_EOL; ?>
 <?php echo "@section('content')".PHP_EOL; ?>
 <div class="row">
     <div class="col-sm-12">
@@ -7,7 +7,7 @@
 </div>
 <div class="row">
     <div class="col-sm-12 text-right">
-        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::EDIT_ROUTE, ".$names->getSingularInstanceName()."->".$names->makeWrappedNamespacedColumnConstant('id')."); ?>"; ?>" class="btn btn-warning btn-sm">Edit</a>
+        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::EDIT_ROUTE, ".$names->getSingularInstanceName()."->".$names->makeWrappedNamespacedColumnConstant('id')."); ?>"; ?>" class="btn btn-warning btn-xs">Edit</a>
         <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::INDEX_ROUTE); ?>"; ?>" class="btn btn-default btn-sm">View All</a>
     </div>
 </div>

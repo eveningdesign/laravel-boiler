@@ -23,6 +23,7 @@ class BoilerplateServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'');
         $this->registerConstantsGeneratorCommand();
         $this->registerViewsGeneratorCommand();
         $this->registerControllerGeneratorCommand();

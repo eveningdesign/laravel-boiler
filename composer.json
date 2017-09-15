@@ -17,5 +17,12 @@
         "psr-4": {
             "EveningDesign\\Boiler\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "EveningDesign\\Boiler\\BoilerplateServiceProvider"
+            ]
+        }
     }
 }

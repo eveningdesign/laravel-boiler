@@ -1,4 +1,4 @@
-<?php echo "@extends('app')".PHP_EOL; ?>
+<?php echo config('boiler.blade.layout').PHP_EOL; ?>
 <?php echo "@section('content')".PHP_EOL; ?>
 <div class="row">
     <div class="col-sm-12">
