@@ -10,6 +10,8 @@ return [
     ],
     'blade' => [
         'layout' => "@extends('app')",
-        'section' => "@section('content')",
+        'sections' => [
+            'content' => "@section('content')",
+        ]
     ],
 ];

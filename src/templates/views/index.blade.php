@@ -1,5 +1,5 @@
-<?php echo config('boiler.blade.layout').PHP_EOL; ?>
-<?php echo "@section('content')".PHP_EOL; ?>
+<?php echo \EveningDesign\Boiler\Support\Helpers::getLayout().PHP_EOL; ?>
+<?php echo \EveningDesign\Boiler\Support\Helpers::getContentSection().PHP_EOL; ?>
 <div class="row">
     <div class="col-sm-12">
         <h3>All <?php echo \EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($names->reset()->plural()->get()); ?></h3>
@@ -7,7 +7,7 @@
 </div>
 <div class="row">
     <div class="col-sm-12 text-right">
-        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::CREATE_ROUTE); ?>"; ?>" class="btn btn-success btn-sm">Add <?php echo \EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($names->reset()->singular()->get()); ?></a> 
+        <a href="<?php echo "<?php echo route(".$names->getNamespacedConstantClass()."::CREATE_ROUTE); ?>"; ?>" class="btn btn-success <?php echo ;?>">Add <?php echo \EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($names->reset()->singular()->get()); ?></a>
     </div>
 </div>
 <div class="row">

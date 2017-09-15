@@ -40,4 +40,29 @@ class Helpers {
         return ucwords(str_replace("_", " ", snake_case($text)));
     }
 
+    public static function getLayout()
+    {
+        return config('boiler.blade.layout');
+    }
+
+    public static function getContentSection()
+    {
+        return config('boiler.blade.sections.content');
+    }
+
+    public static function getHeading()
+    {
+        return config('boiler.styling.headings');
+    }
+
+    public static function getButtonSize()
+    {
+        return config('boiler.styling.classes.button-size');
+    }
+
+    public static function getTableClass()
+    {
+        return config('boiler.styling.classes.table');
+    }
+
 }

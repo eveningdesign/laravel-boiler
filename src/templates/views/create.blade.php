@@ -1,5 +1,5 @@
-<?php echo config('boiler.blade.layout').PHP_EOL; ?>
-<?php echo "@section('content')".PHP_EOL; ?>
+<?php echo \EveningDesign\Boiler\Support\Helpers::getLayout().PHP_EOL; ?>
+<?php echo \EveningDesign\Boiler\Support\Helpers::getContentSection().PHP_EOL; ?>
 <div class="row">
     <div class="col-sm-12">
         <h3>Create <?php echo \EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($names->reset()->singular()->get()); ?></h3>
