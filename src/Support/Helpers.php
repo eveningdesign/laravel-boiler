@@ -30,6 +30,10 @@ class Helpers {
         return base_path("resources/views")."/$filename";
     }
 
+    public static function makeRoutesFilename($filename = "") {
+        return base_path("routes")."/$filename";
+    }
+
     public static function ensureDirectory($directory) {
         if(!file_exists($directory)) {
             mkdir($directory);

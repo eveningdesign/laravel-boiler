@@ -39,7 +39,7 @@ class GenerateRoute extends Command {
     {
         $names = new ResourceNames($this->argument('resourceName'));
         $routeEntry = sprintf("//Route::resource('%s', '%s');".PHP_EOL, $names->getRouteBase(), $names->getControllerClass());
-        file_put_contents(Helpers::makeHttpFilename('web.php'), $routeEntry, FILE_APPEND);
+        file_put_contents(Helpers::makeRoutesFilename('web.php'), $routeEntry, FILE_APPEND);
         $this->info("Added entry to web.php");
     }
 }

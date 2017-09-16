@@ -11,7 +11,7 @@
 @foreach($columns as $column)
     <tr>
         <td><?php echo "<?php echo \\Form::label(".$names->makeNamespacedColumnConstant($column->Field).", '".\EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($column->Field)."'); ?>"; ?></td>
-        <td><?php echo "<?php echo \\Form::text('".$names->makeNamespacedColumnConstant($column->Field)."'); ?>"; ?></td>
+        <td><?php echo "<?php echo \\Form::text(".$names->makeNamespacedColumnConstant($column->Field)."); ?>"; ?></td>
     </tr>
 @endforeach
     <tr>
