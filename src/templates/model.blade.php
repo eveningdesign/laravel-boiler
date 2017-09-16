@@ -11,7 +11,7 @@ class <?php echo $names->getModelName(); ?> extends Model
 @endforeach
 
     protected $fillable = [
-    @foreach($filteredColumns->pluck('Field')->map(function($i) {return $names->makePrefixedColumnConstant("self::", $i);}) as $column)
+    @foreach($filteredColumns->pluck('Field')->map(function($i) use ($names) {return $names->makePrefixedColumnConstant("self::", $i);}) as $column)
     <?php echo $column; ?>,
 @endforeach
 ];
