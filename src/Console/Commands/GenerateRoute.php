@@ -38,8 +38,8 @@ class GenerateRoute extends Command {
     public function handle()
     {
         $names = new ResourceNames($this->argument('resourceName'));
-        $routeEntry = sprintf("//Route::resource(%s::PATH, %s::CONTROLLER);".PHP_EOL, $names->getNamespacedConstantClass(), $names->getNamespacedConstantClass());
-        file_put_contents(Helpers::makeHttpFilename('routes.php'), $routeEntry, FILE_APPEND);
-        $this->info("Added entry to routes.php");
+        $routeEntry = sprintf("//Route::resource('%s', '%s';".PHP_EOL, $names->getRouteBase(), $names->getControllerClass());
+        file_put_contents(Helpers::makeHttpFilename('web.php'), $routeEntry, FILE_APPEND);
+        $this->info("Added entry to web.php");
     }
 }

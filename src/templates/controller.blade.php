@@ -1,8 +1,6 @@
-<?php echo "<?php"; ?>
+<?php echo "<?php".PHP_EOL; ?>
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 
 use <?php echo $names->getNamespacedConstantClass(); ?>;
 use <?php echo $names->getNamespacedModelName(); ?>;

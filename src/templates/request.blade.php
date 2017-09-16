@@ -2,11 +2,14 @@
 
 namespace App\Http\Requests;
 
-class <?php echo $names->getRequestClass(); ?> extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class <?php echo $names->getRequestClass(); ?> extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return false;
+
     }
 
     public function rules()
