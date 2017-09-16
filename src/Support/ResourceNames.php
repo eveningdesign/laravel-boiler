@@ -44,14 +44,29 @@ class ResourceNames {
         return $this->result;
     }
 
+    public function makeColumnConstantName($columnName)
+    {
+        return sprintf("COL_%s", strtoupper($columnName));
+    }
+
+    public function makePrefixedColumnConstant($prefix, $columnName)
+    {
+        return sprintf("%s%s", $prefix, $this->makeColumnConstantName($columnName));
+    }
+
+    public function makeColumnConstantDefinition($columnName)
+    {
+        return sprintf("const %s = '%s';", $this->makeColumnConstantName($columnName), $columnName);
+    }
+
     public function makeColumnConstant($columnName)
     {
-        return sprintf("%s::COL_%s", $this->getModelName(), strtoupper($columnName));
+        return sprintf("%s::%s", $this->getModelName(), $this->makeColumnConstantName($columnName));
     }
 
     public function makeNamespacedColumnConstant($columnName)
     {
-        return sprintf("%s::COL_%s", $this->getNamespacedModelName(), strtoupper($columnName));
+        return sprintf("%s::%s", $this->getNamespacedModelName(), $this->makeColumnConstantName($columnName));
     }
 
     public function makeWrappedColumnConstant($columnName)

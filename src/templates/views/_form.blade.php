@@ -10,8 +10,8 @@
 <table class="<?php echo \EveningDesign\Boiler\Support\Helpers::getTableClass(); ?>">
 @foreach($columns as $column)
     <tr>
-        <td><?php echo "<?php echo \\Form::label('".$column->Field."', '".\EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($column->Field)."'); ?>"; ?></td>
-        <td><?php echo "<?php echo \\Form::text('".$column->Field."'); ?>"; ?></td>
+        <td><?php echo "<?php echo \\Form::label(".$names->makeNamespacedColumnConstant($column->Field).", '".\EveningDesign\Boiler\Support\Helpers::makeHumanFriendly($column->Field)."'); ?>"; ?></td>
+        <td><?php echo "<?php echo \\Form::text('".$names->makeNamespacedColumnConstant($column->Field)."'); ?>"; ?></td>
     </tr>
 @endforeach
     <tr>
